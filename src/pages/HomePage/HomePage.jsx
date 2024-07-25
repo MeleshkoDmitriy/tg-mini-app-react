@@ -17,10 +17,12 @@ export const HomePage = () => {
     <section>
       <Header />
       <h1>HomePage</h1>
-      <Link to={`/form`}>
-        <Button>Show form page</Button>
-      </Link>
-      <Button onClick={onToggle}>MainButton</Button>
+      <main className={styles.main}>
+        <Link to={`/form`}>
+          <Button>Show form page</Button>
+        </Link>
+        <Button onClick={onToggle}>MainButton</Button>
+      </main>
     </section>
   );
 };
