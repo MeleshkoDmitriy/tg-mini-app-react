@@ -5,4 +5,5 @@
   color: var(--tg-theme-button-text-color);
   background-color: var(--tg-theme-button-color);
   padding: 10px 15px;
+  border-radius: 10px;
 }
