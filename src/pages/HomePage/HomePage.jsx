@@ -21,7 +21,7 @@ export const HomePage = () => {
         <Link to={`/form`}>
           <Button>Show form page</Button>
         </Link>
-        <Button onClick={onToggle}>MainButton</Button>
+        <Button onClick={onToggle}>Main Button</Button>
       </main>
     </section>
   );
