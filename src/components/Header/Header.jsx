@@ -1,4 +1,5 @@
 import { useTelegram } from '../../hooks/useTelegram';
+import { Button } from '../Button/Button';
 import styles from './Header.module.css';
 
 export const Header = () => {
