@@ -31,7 +31,7 @@ export const Form = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form}>
       <input
         className={styles.input}
         onChange={handleChangeName}
