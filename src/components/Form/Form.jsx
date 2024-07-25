@@ -1,10 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../Button/Button';
 import styles from './Form.module.css';
+import { useTelegram } from '../../hooks/useTelegram';
 
 export const Form = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const {tg} = useTelegram();
+
+  useEffect(() => {
+    if(!name || !phone) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
+    }
+  },[name, phone]);
+
+  useEffect(() => {
+    tg.MainButton.setParams({
+      text: 'Send data',
+    })
+  }, [])
 
   const handleChangeName = (event) => {
     setName(event.target.value);
@@ -12,11 +28,6 @@ export const Form = () => {
 
   const handleChangePhone = (event) => {
     setPhone(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(`Name: ${name}, Phone: ${phone}`);
   };
 
   return (
@@ -35,7 +46,6 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
-      <Button type="submit">Отправить</Button>
     </form>
   );
 };
