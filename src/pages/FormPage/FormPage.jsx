@@ -1,7 +1,11 @@
-import styles from './FormPage.module.css'
+import { Header } from '../../components/Header/Header';
+import styles from './FormPage.module.css';
 
 export const FormPage = () => {
   return (
-    <div>FormPage</div>
-  )
-}
+    <section>
+      <Header />
+      
+    </section>
+  );
+};
