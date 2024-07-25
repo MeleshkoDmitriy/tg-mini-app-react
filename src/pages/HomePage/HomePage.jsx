@@ -2,24 +2,23 @@ import { Link } from 'react-router-dom';
 import styles from './HomePage.module.css';
 import { useEffect } from 'react';
 import { Button } from '../../components/Button/Button';
+import { Header } from '../../components/Header/Header';
+import { useTelegram } from '../../hooks/useTelegram';
 
-const tg = window.Telegram.WebApp;
 
 export const HomePage = () => {
+  const {tg} = useTelegram();
+
   useEffect(() => {
     tg.ready();
     tg.expand();
   }, [])
 
-  const onCloseClick = () => {
-    tg.close();
-  };
-
   return (
     <section>
+      <Header />
       <h1>HomePage</h1>
-      <Link to={`/form`}><button>Show form page</button></Link>
-      <Button onClick={onCloseClick}>Закрыть</Button>
+      <Link to={`/form`}><Button>Show form page</Button></Link>
     </section>
   );
 };
