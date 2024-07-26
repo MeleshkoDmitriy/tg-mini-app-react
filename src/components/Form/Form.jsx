@@ -12,6 +12,11 @@ export const Form = () => {
       name,
       phone,
     };
+    tg.open('sendMessage', {
+      chat_id: '@your_chat_id',
+      text: JSON.stringify(data),
+    });
+    console.log(data)
     sendData(JSON.stringify(data));
     setName('');
     setPhone('');
