@@ -9,13 +9,13 @@ export const Form = () => {
 
   const onSendData = useCallback(() => {
     const data = {
-      name,
-      phone,
+      name: name,
+      phone: phone,
     };
     console.log(data)
     sendData(JSON.stringify(data));
-    setName('');
-    setPhone('');
+    // setName('');
+    // setPhone('');
   }, [name, phone, tg, sendData]);
 
   useEffect(() => {
