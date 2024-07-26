@@ -14,11 +14,13 @@ export const useTelegram = () => {
   };
 
   const username = tg.initDataUnsafe?.user?.username;
+  const sendData = tg.sendData
 
   return {
     tg,
     onClose,
     onToggle,
     username,
+    sendData,
   };
 };
