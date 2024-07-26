@@ -6,14 +6,15 @@ export const Form = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const { tg } = useTelegram();
+  const [isSending, setIsSending] = useState(false);
 
   const onSendData = useCallback(() => {
     const data = {
       name,
       phone,
     };
-
     tg.sendData(JSON.stringify(data));
+    setIsSending(true);
   }, [name, phone]);
 
   useEffect(() => {
@@ -61,6 +62,7 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
+      {isSending && <div>sending</div>}
     </form>
   );
 };
