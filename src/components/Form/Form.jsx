@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import styles from './Form.module.css';
 import { useTelegram } from '../../hooks/useTelegram';
+const tel = window.Telegram.WebApp;
+
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -13,7 +15,7 @@ export const Form = () => {
       name,
       phone,
     };
-    tg.sendData(JSON.stringify(data));
+    tel.sendData(JSON.stringify(data));
     setIsSending(true);
   }, [name, phone]);
 
