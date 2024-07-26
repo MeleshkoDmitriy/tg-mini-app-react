@@ -16,14 +16,14 @@ export const Form = () => {
     sendData(JSON.stringify(data));
     setName('');
     setPhone('');
-  }, [name, phone]);
+  }, [name, phone, tg, sendData]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
     return () => {
       tg.offEvent('mainButtonClicked', onSendData);
     };
-  }, [onSendData]);
+  }, [onSendData, tg]);
 
   useEffect(() => {
     if (!name || !phone) {
@@ -31,7 +31,7 @@ export const Form = () => {
     } else {
       tg.MainButton.show();
     }
-  }, [name, phone]);
+  }, [name, phone, tg]);
 
   useEffect(() => {
     tg.MainButton.setParams({
