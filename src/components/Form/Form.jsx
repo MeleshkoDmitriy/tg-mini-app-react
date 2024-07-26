@@ -13,6 +13,8 @@ export const Form = () => {
       phone,
     };
     sendData(JSON.stringify(data));
+    setName('');
+    setPhone('');
   }, [name, phone]);
 
   useEffect(() => {
