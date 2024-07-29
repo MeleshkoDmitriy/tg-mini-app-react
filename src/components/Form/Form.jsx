@@ -10,18 +10,10 @@ export const Form = () => {
   const { tg, sendData } = useTelegram();
 
   const onSendData = useCallback(() => {
-    // const data = {
-    //   name: name,
-    //   phone: phone,
-    // };
-    // console.log(data);
-
     axios
       .post(BASE_URL, {
-        body: {
-          name,
-          phone,
-        },
+        name,
+        phone,
       })
       .then(() => {
         setName('');
