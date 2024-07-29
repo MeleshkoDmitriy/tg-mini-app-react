@@ -18,7 +18,7 @@ export const Form = () => {
 
     axios
       .post(BASE_URL, {
-        data,
+        data: JSON.stringify(data),
       })
       .then(() => {
         setName('');
