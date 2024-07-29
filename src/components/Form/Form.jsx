@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import styles from './Form.module.css';
 import { useTelegram } from '../../hooks/useTelegram';
+import axios from 'axios';
+import { BASE_URL } from '../../api/api';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -12,10 +14,16 @@ export const Form = () => {
       name: name,
       phone: phone,
     };
-    console.log(data)
-    sendData(JSON.stringify(data));
-    // setName('');
-    // setPhone('');
+    console.log(data);
+
+    axios
+      .post(BASE_URL, {
+        data,
+      })
+      .then(() => {
+        setName('');
+        setPhone('');
+      });
   }, [name, phone, tg, sendData]);
 
   useEffect(() => {
@@ -63,7 +71,9 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
-      <button onClick={onSendData} type='button'>sendbutton</button>
+      <button onClick={onSendData} type="button">
+        sendbutton
+      </button>
     </form>
   );
 };
