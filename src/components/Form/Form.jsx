@@ -7,26 +7,17 @@ import { BASE_URL } from '../../api/api';
 export const Form = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const { tg, sendData } = useTelegram();
+  const { tg } = useTelegram();
 
   const onSendData = () => {
-    // axios
-    //   .post(BASE_URL, {
-    //     name,
-    //     phone,
-    //   })
-    //   .then(() => {
-    //     setName('');
-    //     setPhone('');
-    //   });
     const data = {
       name,
       phone,
-    }
-
-    sendData(JSON.stringify(data))
-    console.log(JSON.stringify(data))
+    };
+  
+    tg.sendData(JSON.stringify(data));
   };
+  
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
