@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import styles from './Form.module.css';
-import { useTelegram } from '../../hooks/useTelegram';
+import { useTelegram } from '../../../hooks/useTelegram';
 import axios from 'axios';
-import { BASE_URL } from '../../api/api';
+import { BASE_URL } from '../../../api/api';
 
 export const Form = () => {
   const [name, setName] = useState('');

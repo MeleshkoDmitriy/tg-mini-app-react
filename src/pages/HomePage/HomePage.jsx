@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Button } from '../../components/Button/Button';
 import { Header } from '../../components/Header/Header';
 import { useTelegram } from '../../hooks/useTelegram';
-import { Form } from '../../components/Form/Form';
+import { Form } from '../../components/Forms/Form/Form';
 
 export const HomePage = () => {
   const { tg } = useTelegram();
@@ -17,9 +17,14 @@ export const HomePage = () => {
   return (
     <section className={styles.container}>
       <Header />
-      <h1 className={styles.title}>Home Page Form</h1>
+      <h1 className={styles.title}>Выберите форму:</h1>
       <main className={styles.main}>
-        <Form />
+        <Link to={'/late'}>
+          <Button>Опаздываю</Button>
+        </Link>
+        <Link to={'/sick'}>
+          <Button>Заболел</Button>
+        </Link>
       </main>
     </section>
   );
