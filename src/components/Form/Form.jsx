@@ -7,15 +7,16 @@ import { BASE_URL } from '../../api/api';
 export const Form = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const { tg } = useTelegram();
+  const { tg, sendData, query_id } = useTelegram();
 
   const onSendData = useCallback(() => {
     const data = {
+      query_id,
       name,
       phone,
     };
   
-    tg.sendData(JSON.stringify(data));
+    sendData(JSON.stringify(data));
 
     axios.post(BASE_URL, data)
 

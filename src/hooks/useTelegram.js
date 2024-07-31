@@ -13,6 +13,7 @@ export const useTelegram = () => {
     }
   };
 
+  const query_id = tg.initDataUnsafe?.query_id;
   const user = tg.initDataUnsafe?.user;
   const username = tg.initDataUnsafe?.user?.username;
   const sendData = tg.sendData
@@ -24,5 +25,6 @@ export const useTelegram = () => {
     user,
     username,
     sendData,
+    query_id
   };
 };
