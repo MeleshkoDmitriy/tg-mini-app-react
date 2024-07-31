@@ -10,15 +10,21 @@ export const Form = () => {
   const { tg, sendData } = useTelegram();
 
   const onSendData = useCallback(() => {
-    axios
-      .post(BASE_URL, {
-        name,
-        phone,
-      })
-      .then(() => {
-        setName('');
-        setPhone('');
-      });
+    // axios
+    //   .post(BASE_URL, {
+    //     name,
+    //     phone,
+    //   })
+    //   .then(() => {
+    //     setName('');
+    //     setPhone('');
+    //   });
+    const data = {
+      name,
+      phone,
+    }
+
+    sendData(JSON.stringify(data))
   }, [name, phone, tg, sendData]);
 
   useEffect(() => {
@@ -26,7 +32,7 @@ export const Form = () => {
     return () => {
       tg.offEvent('mainButtonClicked', onSendData);
     };
-  }, [onSendData, tg]);
+  }, []);
 
   useEffect(() => {
     if (!name || !phone) {

@@ -17,7 +17,7 @@ export const HomePage = () => {
   return (
     <section className={styles.container}>
       <Header />
-      <h1 className={styles.title}>HomePage</h1>
+      <h1 className={styles.title}>Home Page Form</h1>
       <main className={styles.main}>
         <Form />
       </main>

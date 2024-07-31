@@ -13,6 +13,7 @@ export const useTelegram = () => {
     }
   };
 
+  const user = tg.initDataUnsafe?.user;
   const username = tg.initDataUnsafe?.user?.username;
   const sendData = tg.sendData
 
@@ -20,6 +21,7 @@ export const useTelegram = () => {
     tg,
     onClose,
     onToggle,
+    user,
     username,
     sendData,
   };
