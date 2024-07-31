@@ -69,9 +69,6 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
-      <button onClick={onSendData} type="button" className={styles.button}>
-        send data to server
-      </button>
     </form>
   );
 };
