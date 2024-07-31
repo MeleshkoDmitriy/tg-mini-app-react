@@ -7,7 +7,7 @@ import { useTelegram } from '../../hooks/useTelegram';
 import { Form } from '../../components/Form/Form';
 
 export const HomePage = () => {
-  const { tg, onToggle } = useTelegram();
+  const { tg } = useTelegram();
 
   useEffect(() => {
     tg.ready();
@@ -15,15 +15,11 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <section>
+    <section >
       <Header />
       <h1>HomePage</h1>
       <main className={styles.main}>
         <Form />
-        <Link to={`/form`}>
-          <Button>Show form page</Button>
-        </Link>
-        <Button onClick={onToggle}>Main Button</Button>
       </main>
     </section>
   );
