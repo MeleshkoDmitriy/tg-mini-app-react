@@ -16,6 +16,8 @@ export const useTelegram = () => {
   const query_id = tg.initDataUnsafe?.query_id;
   const user = tg.initDataUnsafe?.user;
   const username = tg.initDataUnsafe?.user?.username;
+  const userId = tg.initDataUnsafe?.user?.id;
+  const firstName = tg.initDataUnsafe?.user?.first_name;
   const sendData = tg.sendData
 
   return {
@@ -24,6 +26,8 @@ export const useTelegram = () => {
     onToggle,
     user,
     username,
+    userId,
+    firstName,
     sendData,
     query_id
   };

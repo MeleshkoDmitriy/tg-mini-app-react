@@ -8,14 +8,20 @@ export const LateForm = () => {
   const type = 'late';
   const [time, setTime] = useState('');
   const [reason, setReason] = useState('');
-  const { tg, user } = useTelegram();
+  const { tg, userId, username, firstName } = useTelegram();
 
   const onSendData = useCallback(() => {
-    const data = {
-      user,
-      type,
+    const inputs = {
       time,
       reason,
+    }
+
+    const data = {
+      userId,
+      username,
+      firstName,
+      type,
+      inputs
     };
   
     axios.post(BASE_URL, data)

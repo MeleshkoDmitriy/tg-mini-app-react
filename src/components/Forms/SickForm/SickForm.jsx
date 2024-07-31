@@ -9,15 +9,21 @@ export const SickForm = () => {
   const [official, setOfficial] = useState('');
   const [working, setWorking] = useState('');
   const [days, setDays] = useState('');
-  const { tg, user } = useTelegram();
+  const { tg, userId, username, firstName } = useTelegram();
 
   const onSendData = useCallback(() => {
-    const data = {
-      user,
-      type,
+    const inputs = {
       official,
       working,
       days,
+    }
+
+    const data = {
+      userId,
+      username,
+      firstName,
+      type,
+      inputs
     };
 
     axios.post(BASE_URL, data);
