@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 20px;
 }
-
-.input {
+.input, 
+.button {
   padding: 20px;
 }

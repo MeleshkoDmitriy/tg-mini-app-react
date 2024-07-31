@@ -65,9 +65,9 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
-      {/* <button onClick={onSendData} type="button" className={styles.button}>
+      <button onClick={onSendData} type="button" className={styles.button}>
         sendbutton
-      </button> */}
+      </button>
     </form>
   );
 };
