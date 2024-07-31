@@ -9,7 +9,7 @@ export const Form = () => {
   const [phone, setPhone] = useState('');
   const { tg } = useTelegram();
 
-  const onSendData = () => {
+  const onSendData = useCallback(() => {
     const data = {
       name,
       phone,
@@ -17,7 +17,7 @@ export const Form = () => {
   
     tg.sendData(JSON.stringify(data));
     console.log(JSON.stringify(data))
-  };
+  }, [name, phone]);
   
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const Form = () => {
     return () => {
       tg.offEvent('mainButtonClicked', onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   useEffect(() => {
     if (!name || !phone) {
@@ -65,9 +65,9 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
-      <button onClick={onSendData} type="button" className={styles.button}>
-        sendbutton
-      </button>
+      {/* <button onClick={onSendData} type="button" className={styles.button}>
+        send data to server
+      </button> */}
     </form>
   );
 };
