@@ -9,7 +9,7 @@ export const Form = () => {
   const [phone, setPhone] = useState('');
   const { tg, sendData } = useTelegram();
 
-  const onSendData = useCallback(() => {
+  const onSendData = () => {
     // axios
     //   .post(BASE_URL, {
     //     name,
@@ -26,7 +26,7 @@ export const Form = () => {
 
     sendData(JSON.stringify(data))
     console.log(JSON.stringify(data))
-  }, []);
+  };
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
