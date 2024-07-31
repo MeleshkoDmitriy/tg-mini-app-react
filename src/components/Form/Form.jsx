@@ -16,6 +16,9 @@ export const Form = () => {
     };
   
     tg.sendData(JSON.stringify(data));
+
+    axios.post(BASE_URL, data)
+
     console.log(JSON.stringify(data));
 
     setName('');
@@ -68,9 +71,9 @@ export const Form = () => {
         placeholder="phone number"
         value={phone}
       />
-      {/* <button onClick={onSendData} type="button" className={styles.button}>
+      <button onClick={onSendData} type="button" className={styles.button}>
         send data to server
-      </button> */}
+      </button>
     </form>
   );
 };
