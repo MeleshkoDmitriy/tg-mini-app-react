@@ -15,8 +15,6 @@ export const Form = () => {
       phone,
     };
   
-    // tg.sendData(JSON.stringify(data));
-
     axios.post(BASE_URL, data)
 
     console.log(JSON.stringify(data));
