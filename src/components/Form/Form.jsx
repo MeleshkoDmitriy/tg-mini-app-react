@@ -25,7 +25,8 @@ export const Form = () => {
     }
 
     sendData(JSON.stringify(data))
-  }, [name, phone, tg, sendData]);
+    console.log(JSON.stringify(data))
+  }, []);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
