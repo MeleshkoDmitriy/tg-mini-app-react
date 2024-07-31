@@ -16,7 +16,10 @@ export const Form = () => {
     };
   
     tg.sendData(JSON.stringify(data));
-    console.log(JSON.stringify(data))
+    console.log(JSON.stringify(data));
+
+    setName('');
+    setPhone('');
   }, [name, phone]);
   
 
